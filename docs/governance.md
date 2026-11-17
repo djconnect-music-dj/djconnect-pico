@@ -19,7 +19,7 @@ This repository follows the active DJConnect source-repository model:
 | Concern | Reference | Decision |
 | --- | --- | --- |
 | Ownership, security, contributions | `djconnect-esp32` | Adapted for Pico/MicroPython and experimental status. |
-| Delivery Guard and Owner Authorization | `djconnect-esp32`, `djconnect` | Adopted as pinned reusable workflows. |
+| Delivery Guard and Owner Authorization | `djconnect-esp32`, `djconnect` | Trusted Delivery is pinned; Owner Authorization uses the [central workflow](OWNER_AUTHORIZATION.md). |
 | Software Assurance | `djconnect` | Adopted through the canonical balanced profile. |
 | Dependabot and action pins | active device/client repositories | Adopted. |
 | TDE Observe | `djconnect-esp32`, TDE 1.1.1 | Deferred truthfully; no qualified evidence yet. |
