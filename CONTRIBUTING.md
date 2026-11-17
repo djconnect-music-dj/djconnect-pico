@@ -12,7 +12,7 @@ or cross-repository contracts—require explicit Owner Authorization.
 
 Read [DEVELOPMENT_ENVIRONMENT.md](DEVELOPMENT_ENVIRONMENT.md) before changing
 firmware. A change to shared runtime, pairing, profile, or playback contracts
-belongs first in the [canonical DJConnect repository](https://github.com/pcvantol/djconnect).
+belongs first in the [canonical DJConnect repository](https://github.com/djconnect-music-dj/djconnect).
 
 ## Before opening a PR
 
