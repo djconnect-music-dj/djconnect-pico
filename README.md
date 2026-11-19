@@ -1,0 +1,48 @@
+# DJConnect Pico
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/djconnect-music-dj/djconnect/7e14e5970b3f68d33d243ae6bab2b281fad59bb2/assets/djconnect/brand-v2/wordmark-primary-dark.png">
+  <img src="https://raw.githubusercontent.com/djconnect-music-dj/djconnect/7e14e5970b3f68d33d243ae6bab2b281fad59bb2/assets/djconnect/brand-v2/wordmark-primary-light.png" alt="DJConnect" width="640">
+</picture>
+
+## What this repository is
+
+Experimental Raspberry Pi Pico 2 W firmware and device prototypes for
+[DJConnect](https://djconnect.dev). It is an evaluation repository, not a
+supported DJConnect product component.
+
+## What it owns
+
+- Pico 2 W-specific prototype firmware, host-side tests, and development docs.
+- Constrained-client experiments that consume approved DJConnect contracts.
+
+## What it explicitly does not own
+
+Home Assistant remains the canonical DJConnect runtime and authority. This
+repository does not own Session Runtime, Music Backend orchestration, Music
+DNA, DJ intelligence, user-profile persistence, pairing contracts, or product
+support decisions. Those boundaries are governed by the
+[DJConnect platform architecture](https://github.com/djconnect-music-dj/djconnect/tree/main/docs/technical).
+
+## Current support status
+
+**Experimental only.** No production support, OTA path, provisioning design, or
+release distribution is implied. Product capability and support require a
+separate architecture approval.
+
+## Start here
+
+Read [DEVELOPMENT_ENVIRONMENT.md](DEVELOPMENT_ENVIRONMENT.md), then review the
+[repository responsibility](docs/architecture/repository-responsibility.md).
+The wider project lives in [djconnect-music-dj/djconnect](https://github.com/djconnect-music-dj/djconnect).
+
+## Initial toolchain
+
+This repository starts with MicroPython for Raspberry Pi Pico 2 W. It gives the
+smallest practical loop for constrained-device experiments while preserving the
+option to assess the Pico SDK C/C++ route before a product architecture is
+approved. The minimal skeleton deliberately contains no device behavior.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

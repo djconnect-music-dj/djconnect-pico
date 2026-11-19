@@ -1,0 +1,46 @@
+name: MicroPython CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  software-assurance-governance:
+    name: Software Assurance governance
+    permissions:
+      contents: read
+    uses: djconnect-music-dj/djconnect-shared-workflows/.github/workflows/software-assurance-governance-aabd.yml@4025a68add8ba98f1f2e0307d7f3998e45c0d9ef
+    with:
+      execution_profile: balanced
+      owner: djconnect-music-dj/djconnect-pico
+
+  validate:
+    name: Syntax and host tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v5
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v6
+        with:
+          python-version: "3.11"
+      - name: Compile host-validated sources
+        run: python -m compileall -q src tests
+      - name: Run host-side unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Check sensitive filenames are absent
+        run: |
+          if git ls-files | grep -E '(^|/)(secrets|credentials|\.env)(\.|$)'; then
+            echo "Potential secret-bearing file is tracked."
+            exit 1
+          fi
